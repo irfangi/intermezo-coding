@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nav Mobile</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Roboto+Mono:400,500|Material+Icons">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        position: absolute;
+        height: 52px;
+        width: 280px;
+        left: 50%;
+        bottom: 0%;
+        margin-bottom: 8px;
+        transform: translate(-50%);
+    }
+    .nav{
+        box-sizing: border-box;
+        padding: 8px;
+        height: 100%;
+        width: 100%;
+        background-color: aqua;
+        border-radius: 40px;
+    }
+    .nav i{
+        margin:6px 12px;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    .nav .circle{
+        border-radius: 20px;
+        position: absolute;
+        background: blanchedalmond;
+        width: 102px;
+        height: 36px;
+        transition: 0.5s;
+    }
+    .nav .active{
+        margin: 6px 40px;
+    }
+    .nav .home{
+        left: 10px;
+    }
+    .nav .search{
+        left: 62px;
+    }
+    .nav .love{
+        left: 114px;
+    }
+    .nav .me{
+        left: 166px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <div id="circle" class="circle home"></div>
+            <i class="material-icons active" id="home">home</i>
+            <i class="material-icons" id="search">search</i>
+            <i class="material-icons" id="love">favorite_border</i>
+            <i class="material-icons" id="me">perm_identity</i>
+        </div>
+    </div>
+    <script>
+        function rmClassI() {
+            $('i').removeClass();
+            $('i').addClass('material-icons');            
+        }
+        function rmClassCircle() {
+            $('#circle').removeClass();
+            $('#circle').addClass('circle');            
+        }
+
+
+        $('i:nth-of-type(1)').click(function(){
+            rmClassCircle();
+            rmClassI();
+            $(this).toggleClass('active');
+            $('#circle').addClass('home');
+        });
+        $('i:nth-of-type(2)').click(function(){
+            rmClassCircle();            
+            rmClassI();                        
+            $(this).toggleClass('active');
+            $('#circle').addClass('search');
+        });
+        $('i:nth-of-type(3)').click(function(){
+            rmClassCircle();            
+            rmClassI();            
+            $(this).toggleClass('active');
+            $('#circle').addClass('love');
+        });
+        $('i:nth-of-type(4)').click(function(){            
+            rmClassCircle();
+            rmClassI();            
+            $(this).toggleClass('active');
+            $('#circle').addClass('me');
+        });
+    </script>
+</body>
+</html>
